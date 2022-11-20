@@ -108,6 +108,18 @@ class HomePage extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            Container(
+                              padding: EdgeInsets.symmetric(horizontal: 9.0, vertical: 4.0),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(30.0),
+                                color: kBrandPrimaryColor,
+                              ),
+                              child: H6(
+                                text: "Plato de fondo",
+
+                              ),
+                            ),
+                            spacing6,
                             H4(
                               text: "Lorem ipsum dolor sit amet",
                               fontWeight: FontWeight.w600,

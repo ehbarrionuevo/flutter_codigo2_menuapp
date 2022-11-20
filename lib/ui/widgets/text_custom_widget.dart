@@ -19,6 +19,7 @@ class OurText extends StatelessWidget {
     return Text(
       text,
       maxLines: maxLines,
+      overflow: TextOverflow.ellipsis,
       style: TextStyle(
           color: kBrandSecondaryColor.withOpacity(0.90),
           fontSize: fontSize,
