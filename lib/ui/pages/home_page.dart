@@ -119,6 +119,32 @@ class HomePage extends StatelessWidget {
                                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                               maxLines: 2,
                             ),
+                            spacing6,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.star,
+                                      size: 18.0,
+                                      color: Colors.amber,
+                                    ),
+                                    spacingWidth6,
+                                    H6(
+                                      text: "5.0",
+                                      color: kBrandSecondaryColor
+                                          .withOpacity(0.70),
+                                    ),
+                                  ],
+                                ),
+                                H4(
+                                  text: "S/ 50.00",
+                                  fontWeight: FontWeight.w600,
+                                  color: kBrandPrimaryColor,
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),

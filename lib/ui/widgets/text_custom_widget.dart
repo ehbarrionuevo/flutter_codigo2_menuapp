@@ -83,8 +83,13 @@ class H3 extends StatelessWidget {
 class H4 extends StatelessWidget {
   final String text;
   final FontWeight? fontWeight;
+  final Color? color;
 
-  H4({required this.text, this.fontWeight});
+  H4({
+    required this.text,
+    this.fontWeight,
+    this.color,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -92,6 +97,7 @@ class H4 extends StatelessWidget {
       text: text,
       fontSize: 16,
       fontWeight: fontWeight,
+      color: color,
     );
   }
 }
