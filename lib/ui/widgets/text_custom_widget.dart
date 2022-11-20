@@ -5,22 +5,26 @@ class OurText extends StatelessWidget {
   final String text;
   final double fontSize;
   final FontWeight? fontWeight;
+  final int? maxLines;
 
   OurText({
     required this.text,
     required this.fontSize,
     this.fontWeight,
+    this.maxLines,
   });
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
+      maxLines: maxLines,
       style: TextStyle(
           color: kBrandSecondaryColor.withOpacity(0.90),
           fontSize: fontSize,
           fontWeight: fontWeight,
-          height: 1),
+          height: 1,
+      ),
     );
   }
 }
@@ -72,10 +76,7 @@ class H4 extends StatelessWidget {
   final String text;
   final FontWeight? fontWeight;
 
-  H4({
-    required this.text,
-    this.fontWeight
-  });
+  H4({required this.text, this.fontWeight});
 
   @override
   Widget build(BuildContext context) {
@@ -103,14 +104,19 @@ class H5 extends StatelessWidget {
 
 class H6 extends StatelessWidget {
   final String text;
+  final int? maxLines;
 
-  H6({required this.text});
+  H6({
+    required this.text,
+    this.maxLines
+  });
 
   @override
   Widget build(BuildContext context) {
     return OurText(
       text: text,
       fontSize: 13,
+      maxLines: maxLines,
     );
   }
 }
