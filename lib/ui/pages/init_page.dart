@@ -41,7 +41,13 @@ class _InitPageState extends State<InitPage> {
           type: BottomNavigationBarType.fixed,
           unselectedLabelStyle: TextStyle(
             color: Colors.white70,
+              fontSize: 13.0
           ),
+          selectedLabelStyle: TextStyle(
+            fontSize: 13.0,
+            color: kBrandPrimaryColor,
+          ),
+          selectedItemColor: kBrandPrimaryColor,
           unselectedItemColor: Colors.white70,
           onTap: (int value){
             indexPage = value;
@@ -49,6 +55,7 @@ class _InitPageState extends State<InitPage> {
 
             });
           },
+          currentIndex: indexPage,
           items: [
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
