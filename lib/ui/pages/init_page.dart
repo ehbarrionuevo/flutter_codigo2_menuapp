@@ -11,9 +11,21 @@ class InitPage extends StatefulWidget {
 }
 
 class _InitPageState extends State<InitPage> {
+
+  int indexPage = 0;
+
+  List<Widget> _pages = [
+    Center(child: Text("Inicio",),),
+    Center(child: Text("Ordenes",),),
+    Center(child: Text("Favoritos",),),
+    Center(child: Text("Mi Perfil",),),
+  ];
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: _pages[indexPage],
       bottomNavigationBar: Container(
         padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 8.0),
         decoration: BoxDecoration(
@@ -31,6 +43,12 @@ class _InitPageState extends State<InitPage> {
             color: Colors.white70,
           ),
           unselectedItemColor: Colors.white70,
+          onTap: (int value){
+            indexPage = value;
+            setState(() {
+
+            });
+          },
           items: [
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
