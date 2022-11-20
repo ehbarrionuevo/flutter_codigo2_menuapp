@@ -60,28 +60,28 @@ class _InitPageState extends State<InitPage> {
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 AssetData.iconHome,
-                color: Colors.white,
+                color: indexPage == 0 ? kBrandPrimaryColor : Colors.white,
               ),
               label: "Inicio",
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 AssetData.iconCart,
-                color: Colors.white,
+                color: indexPage == 1 ? kBrandPrimaryColor : Colors.white,
               ),
               label: "Ordenes",
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 AssetData.iconFavorite,
-                color: Colors.white,
+                color: indexPage == 2 ? kBrandPrimaryColor : Colors.white,
               ),
               label: "Favoritos",
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 AssetData.iconProfile,
-                color: Colors.white,
+                color: indexPage == 3 ? kBrandPrimaryColor : Colors.white,
               ),
               label: "Mi perfil",
             ),
