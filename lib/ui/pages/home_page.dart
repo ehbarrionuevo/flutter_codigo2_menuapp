@@ -35,12 +35,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 
-                H1(text: "Hola a todos",),
-                H2(text: "Hola a todos",),
-                H3(text: "Hola a todos",),
-                H4(text: "Hola a todos",),
-                H5(text: "Hola a todos",),
-                H6(text: "Hola a todos",),
+
 
               ],
             ),
