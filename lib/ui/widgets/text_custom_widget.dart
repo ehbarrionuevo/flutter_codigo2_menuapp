@@ -17,11 +17,10 @@ class OurText extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-        color: kBrandSecondaryColor.withOpacity(0.90),
-        fontSize: fontSize,
-        fontWeight: fontWeight,
-        height: 1
-      ),
+          color: kBrandSecondaryColor.withOpacity(0.90),
+          fontSize: fontSize,
+          fontWeight: fontWeight,
+          height: 1),
     );
   }
 }
@@ -40,7 +39,6 @@ class H1 extends StatelessWidget {
     );
   }
 }
-
 
 class H2 extends StatelessWidget {
   final String text;
@@ -72,14 +70,19 @@ class H3 extends StatelessWidget {
 
 class H4 extends StatelessWidget {
   final String text;
+  final FontWeight? fontWeight;
 
-  H4({required this.text});
+  H4({
+    required this.text,
+    this.fontWeight
+  });
 
   @override
   Widget build(BuildContext context) {
     return OurText(
       text: text,
-      fontSize: 18,
+      fontSize: 16,
+      fontWeight: fontWeight,
     );
   }
 }
