@@ -23,7 +23,10 @@ class HomePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 H1(text: "Bievenido a"),
-                H1(text: "Las espadas de Ramón",),
+                H1(
+                  text: "Las espadas de Ramón",
+                  color: kBrandPrimaryColor,
+                ),
                 spacing14,
                 Container(
                   decoration: BoxDecoration(
@@ -94,7 +97,8 @@ class HomePage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 9.0, vertical: 4.0),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 9.0, vertical: 4.0),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(30.0),
                                 color: kBrandPrimaryColor,
@@ -114,7 +118,6 @@ class HomePage extends StatelessWidget {
                               text:
                                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                               maxLines: 2,
-
                             ),
                           ],
                         ),

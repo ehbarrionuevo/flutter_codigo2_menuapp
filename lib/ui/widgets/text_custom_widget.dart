@@ -23,10 +23,10 @@ class OurText extends StatelessWidget {
       maxLines: maxLines,
       overflow: TextOverflow.ellipsis,
       style: TextStyle(
-          color: color ?? kBrandSecondaryColor.withOpacity(0.90),
-          fontSize: fontSize,
-          fontWeight: fontWeight,
-          height: 1,
+        color: color ?? kBrandSecondaryColor.withOpacity(0.90),
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        height: 1,
       ),
     );
   }
@@ -34,8 +34,12 @@ class OurText extends StatelessWidget {
 
 class H1 extends StatelessWidget {
   final String text;
+  final Color? color;
 
-  H1({required this.text});
+  H1({
+    required this.text,
+    this.color,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +47,7 @@ class H1 extends StatelessWidget {
       text: text,
       fontSize: 26,
       fontWeight: FontWeight.bold,
+      color: color,
     );
   }
 }
