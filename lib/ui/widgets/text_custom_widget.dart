@@ -93,7 +93,7 @@ class H5 extends StatelessWidget {
   Widget build(BuildContext context) {
     return OurText(
       text: text,
-      fontSize: 16,
+      fontSize: 14,
     );
   }
 }
