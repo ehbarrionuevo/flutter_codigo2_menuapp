@@ -6,12 +6,14 @@ class OurText extends StatelessWidget {
   final double fontSize;
   final FontWeight? fontWeight;
   final int? maxLines;
+  final Color? color;
 
   OurText({
     required this.text,
     required this.fontSize,
     this.fontWeight,
     this.maxLines,
+    this.color,
   });
 
   @override
@@ -21,7 +23,7 @@ class OurText extends StatelessWidget {
       maxLines: maxLines,
       overflow: TextOverflow.ellipsis,
       style: TextStyle(
-          color: kBrandSecondaryColor.withOpacity(0.90),
+          color: color ?? kBrandSecondaryColor.withOpacity(0.90),
           fontSize: fontSize,
           fontWeight: fontWeight,
           height: 1,
@@ -106,10 +108,12 @@ class H5 extends StatelessWidget {
 class H6 extends StatelessWidget {
   final String text;
   final int? maxLines;
+  final Color? color;
 
   H6({
     required this.text,
-    this.maxLines
+    this.maxLines,
+    this.color,
   });
 
   @override
@@ -118,6 +122,7 @@ class H6 extends StatelessWidget {
       text: text,
       fontSize: 13,
       maxLines: maxLines,
+      color: color,
     );
   }
 }
