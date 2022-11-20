@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:menuapp/ui/general/colors.dart';
+import 'package:menuapp/ui/pages/home_page.dart';
 import 'package:menuapp/utils/assets_data.dart';
 
 class InitPage extends StatefulWidget {
@@ -15,7 +16,7 @@ class _InitPageState extends State<InitPage> {
   int indexPage = 0;
 
   List<Widget> _pages = [
-    Center(child: Text("Inicio",),),
+    HomePage(),
     Center(child: Text("Ordenes",),),
     Center(child: Text("Favoritos",),),
     Center(child: Text("Mi Perfil",),),
