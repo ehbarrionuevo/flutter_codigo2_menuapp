@@ -11,6 +11,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
@@ -74,7 +78,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                spacing30,
+                spacing20,
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   physics: const BouncingScrollPhysics(),
@@ -84,6 +88,22 @@ class HomePage extends StatelessWidget {
                       CategoryWidget(),
                       CategoryWidget(),
                       CategoryWidget(),
+                    ],
+                  ),
+                ),
+                spacing20,
+                Container(
+                  child: Row(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(12.0),
+                        child: Image.network(
+                          "https://images.pexels.com/photos/1624487/pexels-photo-1624487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                          width: width * 0.22,
+                          height: height * 0.14,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ],
                   ),
                 ),
