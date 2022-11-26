@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:menuapp/models/product_model.dart';
+import 'package:menuapp/ui/general/colors.dart';
 import 'package:menuapp/ui/widgets/general_widget.dart';
 import 'package:menuapp/ui/widgets/text_custom_widget.dart';
 
@@ -60,9 +61,17 @@ class ProductDetailPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      spacing20,
-                      H2(text: model.title,),
-                      H5(text: model.description),
+                      spacing30,
+                      H2(
+                        text: model.title,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      spacing14,
+                      H5(
+                        text: model.description,
+                        height: 1.48,
+                        color: kBrandSecondaryColor.withOpacity(0.65),
+                      ),
                     ],
                   ),
                 ),
