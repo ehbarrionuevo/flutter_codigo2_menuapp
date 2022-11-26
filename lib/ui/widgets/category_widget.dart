@@ -1,14 +1,17 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:menuapp/models/category_model.dart';
 import 'package:menuapp/ui/general/colors.dart';
 import 'package:menuapp/ui/widgets/general_widget.dart';
 import 'package:menuapp/ui/widgets/text_custom_widget.dart';
 import 'package:menuapp/utils/assets_data.dart';
 
 class CategoryWidget extends StatelessWidget {
-  const CategoryWidget({Key? key}) : super(key: key);
+  CategoryModel model;
+
+  CategoryWidget({
+    required this.model,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +25,14 @@ class CategoryWidget extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          SvgPicture.asset(
-            AssetData.iconFavorite,
-            height: 20.0,
-            color: kBrandSecondaryColor.withOpacity(0.90),
-          ),
-          spacingWidth6,
+          // SvgPicture.asset(
+          //   AssetData.iconFavorite,
+          //   height: 20.0,
+          //   color: kBrandSecondaryColor.withOpacity(0.90),
+          // ),
+          // spacingWidth6,
           H5(
-            text: "Entradas",
+            text: model.description,
           ),
         ],
       ),

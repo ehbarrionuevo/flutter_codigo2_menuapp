@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:menuapp/models/category_model.dart';
 import 'package:menuapp/services/firestore_service.dart';
 import 'package:menuapp/ui/general/colors.dart';
 import 'package:menuapp/ui/widgets/category_widget.dart';
@@ -74,17 +75,21 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 spacing20,
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  physics: const BouncingScrollPhysics(),
-                  child: Row(
-                    children: [
-                      CategoryWidget(),
-                      CategoryWidget(),
-                      CategoryWidget(),
-                      CategoryWidget(),
-                    ],
-                  ),
+                FutureBuilder(
+                  future: _categoryService.getCategories(),
+                  builder: (BuildContext context, AsyncSnapshot snap){
+                    if(snap.hasData){
+                      List<CategoryModel> categories = snap.data;
+                      return  SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        physics: const BouncingScrollPhysics(),
+                        child: Row(
+                          children: categories.map((e) => CategoryWidget(model:e),).toList(),
+                        ),
+                      );
+                    }
+                    return CircularProgressIndicator();
+                  },
                 ),
                 spacing20,
                 ItemFoodWidget(),
