@@ -6,16 +6,17 @@ class ProductDetailProvider extends ChangeNotifier{
 
   int quantity = 1;
   double price = 0;
+  double tempPrice = 0;
 
   void addQuantity(){
     quantity++;
-    price = price * quantity;
+    price = tempPrice * quantity;
     notifyListeners();
   }
 
   void removeQuantity(){
     quantity--;
-    price = price * quantity;
+    price = tempPrice * quantity;
     notifyListeners();
   }
 

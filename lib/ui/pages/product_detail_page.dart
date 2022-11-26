@@ -34,6 +34,7 @@ class ProductDetailPage extends StatelessWidget {
 
     productDetailProvider.price = model.price;
     productDetailProvider.quantity = 1;
+    productDetailProvider.tempPrice = model.price;
 
     return Scaffold(
       body: Stack(
@@ -157,17 +158,26 @@ class ProductDetailPage extends StatelessWidget {
                                 child: Row(
                                   children: [
                                     InkWell(
-                                      onTap: () {
-                                        provider.removeQuantity();
-                                      },
+                                      onTap: provider.quantity > 1
+                                          ? () {
+                                              provider.removeQuantity();
+                                            }
+                                          : null,
                                       child: Container(
                                         padding: const EdgeInsets.all(4.0),
                                         decoration: BoxDecoration(
                                           shape: BoxShape.circle,
-                                          color: Colors.black12,
+                                          color: provider.quantity > 1
+                                              ? Colors.black87
+                                              : Colors.black12,
                                         ),
-                                        child: const Icon(Icons.remove,
-                                            size: 16.0),
+                                        child: Icon(
+                                          Icons.remove,
+                                          size: 16.0,
+                                          color: provider.quantity > 1
+                                              ? Colors.white
+                                              : Colors.black87,
+                                        ),
                                       ),
                                     ),
                                     Container(
