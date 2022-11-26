@@ -83,7 +83,7 @@ class ProductDetailPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      spacing30,
+                      spacing20,
                       H2(
                         text: model.title,
                         fontWeight: FontWeight.w600,
@@ -137,7 +137,7 @@ class ProductDetailPage extends StatelessWidget {
                             )
                             .toList(),
                       ),
-                      spacing14,
+                      spacing6,
                       Consumer<ProductDetailProvider>(
                         builder: (context, provider, _) {
                           return Row(
@@ -214,6 +214,26 @@ class ProductDetailPage extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              height: 54.0,
+              margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+              width: double.infinity,
+              child: ElevatedButton  (
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: kBrandPrimaryColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
+                child: Text(
+                  "Agregar orden",
+                ),
+              ),
+            ),
           ),
         ],
       ),
