@@ -119,7 +119,7 @@ class _HomePageState extends State<HomePage> {
                     return Column(
                       children: provider.products
                           .map(
-                            (e) => ItemFoodWidget(),
+                            (e) => ItemFoodWidget(productModel: e),
                           )
                           .toList(),
                     );

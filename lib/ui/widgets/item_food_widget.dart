@@ -1,18 +1,28 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:menuapp/models/product_model.dart';
+import 'package:menuapp/providers/category_provider.dart';
 import 'package:menuapp/ui/general/colors.dart';
 import 'package:menuapp/ui/widgets/general_widget.dart';
 import 'package:menuapp/ui/widgets/text_custom_widget.dart';
+import 'package:provider/provider.dart';
 
 class ItemFoodWidget extends StatelessWidget {
-  const ItemFoodWidget({Key? key}) : super(key: key);
+
+  ProductModel productModel;
+
+  ItemFoodWidget({required this.productModel,});
 
   @override
   Widget build(BuildContext context) {
 
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+
+    CategoryProvider categoryProvider = Provider.of<CategoryProvider>(context,listen: false);
+
+    String categoryTemp = categoryProvider.categories.where((element) => element.id == productModel.category).toList().first.description;
 
     return  Container(
       padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
@@ -33,7 +43,7 @@ class ItemFoodWidget extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(12.0),
             child: Image.network(
-              "https://images.pexels.com/photos/1624487/pexels-photo-1624487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+              productModel.image,
               width: width * 0.22,
               height: height * 0.14,
               fit: BoxFit.cover,
@@ -52,19 +62,19 @@ class ItemFoodWidget extends StatelessWidget {
                     color: kBrandPrimaryColor,
                   ),
                   child: H6(
-                    text: "Plato de fondo",
+                    text: categoryTemp,
                     color: Colors.white,
                   ),
                 ),
                 spacing6,
                 H4(
-                  text: "Lorem ipsum dolor sit amet",
+                  text: productModel.title,
                   fontWeight: FontWeight.w600,
                 ),
                 spacing3,
                 H6(
                   text:
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                  productModel.description,
                   maxLines: 2,
                 ),
                 spacing6,
@@ -80,14 +90,14 @@ class ItemFoodWidget extends StatelessWidget {
                         ),
                         spacingWidth6,
                         H6(
-                          text: "5.0",
+                          text: productModel.rate.toDouble().toString(),
                           color: kBrandSecondaryColor
                               .withOpacity(0.70),
                         ),
                       ],
                     ),
                     H4(
-                      text: "S/ 50.00",
+                      text: "S/ ${productModel.price.toStringAsFixed(2)}",
                       fontWeight: FontWeight.w600,
                       color: kBrandPrimaryColor,
                     ),
