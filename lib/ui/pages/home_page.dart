@@ -96,9 +96,10 @@ class _HomePageState extends State<HomePage> {
                                   .map(
                                     (e) => CategoryWidget(
                                       model: e,
-                                      isSelected: true,
+                                      isSelected: provider.categorySelected == e.id,
                                       onTap: (){
-
+                                        print("sdsd");
+                                        provider.changeCategorySelected(e.id!);
                                       },
                                     ),
                                   )

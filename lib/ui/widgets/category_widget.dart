@@ -20,27 +20,32 @@ class CategoryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
-      margin: const EdgeInsets.only(right: 12.0),
-      decoration: BoxDecoration(
-        color: isSelected ? kBrandPrimaryColor :  kBrandSecondaryColor.withOpacity(0.07),
-        borderRadius: BorderRadius.circular(30.0),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          // SvgPicture.asset(
-          //   AssetData.iconFavorite,
-          //   height: 20.0,
-          //   color: kBrandSecondaryColor.withOpacity(0.90),
-          // ),
-          // spacingWidth6,
-          H5(
-            text: model.description,
-            color: isSelected ? Colors.white : kBrandSecondaryColor,
-          ),
-        ],
+    return InkWell(
+      onTap: (){
+        onTap();
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+        margin: const EdgeInsets.only(right: 12.0),
+        decoration: BoxDecoration(
+          color: isSelected ? kBrandPrimaryColor :  kBrandSecondaryColor.withOpacity(0.07),
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // SvgPicture.asset(
+            //   AssetData.iconFavorite,
+            //   height: 20.0,
+            //   color: kBrandSecondaryColor.withOpacity(0.90),
+            // ),
+            // spacingWidth6,
+            H5(
+              text: model.description,
+              color: isSelected ? Colors.white : kBrandSecondaryColor,
+            ),
+          ],
+        ),
       ),
     );
   }
