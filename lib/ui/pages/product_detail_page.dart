@@ -20,7 +20,7 @@ class ProductDetailPage extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
 
     CategoryProvider categoryProvider =
-    Provider.of<CategoryProvider>(context, listen: false);
+        Provider.of<CategoryProvider>(context, listen: false);
     categoryTemp = categoryProvider.categories
         .where((element) => element.id == model.category)
         .toList()
@@ -122,10 +122,57 @@ class ProductDetailPage extends StatelessWidget {
                             .map(
                               (e) => Chip(
                                 label: Text(e),
-                                backgroundColor: Colors.black12.withOpacity(0.06),
+                                backgroundColor:
+                                    Colors.black12.withOpacity(0.06),
                               ),
                             )
                             .toList(),
+                      ),
+                      spacing14,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          H2(
+                            text: "S/ ${model.price.toStringAsFixed(2)}",
+                            fontWeight: FontWeight.w600,
+                            color: kBrandPrimaryColor,
+                          ),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8),
+                            decoration: BoxDecoration(
+                              color: Colors.black12.withOpacity(0.06),
+                              borderRadius: BorderRadius.circular(30.0)
+                            ),
+                            child: Row(
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.all(4.0),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.black12,
+                                  ),
+                                  child: const Icon(Icons.remove, size: 16.0),
+                                ),
+                                Container(
+                                  width: 40,
+                                  alignment: Alignment.center,
+                                  child: H5(
+                                    text: "1",
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.all(4.0),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.black87,
+                                  ),
+                                  child: const Icon(Icons.add, size: 16.0, color: Colors.white),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),

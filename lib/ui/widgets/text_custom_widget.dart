@@ -59,10 +59,12 @@ class H1 extends StatelessWidget {
 class H2 extends StatelessWidget {
   final String text;
   final FontWeight? fontWeight;
+  final Color? color;
 
   H2({
     required this.text,
     this.fontWeight,
+    this.color,
   });
 
   @override
@@ -71,6 +73,7 @@ class H2 extends StatelessWidget {
       text: text,
       fontSize: 24,
       fontWeight: fontWeight,
+      color: color,
     );
   }
 }
@@ -115,11 +118,13 @@ class H5 extends StatelessWidget {
   final String text;
   final Color? color;
   final double? height;
+  final FontWeight? fontWeight;
 
   H5({
     required this.text,
     this.color,
     this.height,
+    this.fontWeight,
   });
 
   @override
@@ -129,6 +134,7 @@ class H5 extends StatelessWidget {
       fontSize: 14,
       color: color,
       height: height,
+      fontWeight: fontWeight,
     );
   }
 }
