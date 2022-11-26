@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:menuapp/models/category_model.dart';
 import 'package:menuapp/providers/category_provider.dart';
+import 'package:menuapp/providers/product_provider.dart';
 import 'package:menuapp/services/firestore_service.dart';
 import 'package:menuapp/ui/general/colors.dart';
 import 'package:menuapp/ui/widgets/category_widget.dart';
@@ -18,8 +19,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-
   @override
   void initState() {
     // TODO: implement initState
@@ -27,13 +26,17 @@ class _HomePageState extends State<HomePage> {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       CategoryProvider categoryProvider =
           Provider.of<CategoryProvider>(context, listen: false);
+
+      ProductProvider productProvider =
+          Provider.of<ProductProvider>(context, listen: false);
+
       categoryProvider.getCategoryData();
+      productProvider.getProductData();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
@@ -97,8 +100,9 @@ class _HomePageState extends State<HomePage> {
                                   .map(
                                     (e) => CategoryWidget(
                                       model: e,
-                                      isSelected: provider.categorySelected == e.id,
-                                      onTap: (){
+                                      isSelected:
+                                          provider.categorySelected == e.id,
+                                      onTap: () {
                                         provider.changeCategorySelected(e.id!);
                                       },
                                     ),
@@ -110,13 +114,17 @@ class _HomePageState extends State<HomePage> {
                   },
                 ),
                 spacing20,
-                ItemFoodWidget(),
-                ItemFoodWidget(),
-                ItemFoodWidget(),
-                ItemFoodWidget(),
-                ItemFoodWidget(),
-                ItemFoodWidget(),
-                ItemFoodWidget(),
+                Consumer<ProductProvider>(
+                  builder: (context, provider, _) {
+                    return Column(
+                      children: provider.products
+                          .map(
+                            (e) => ItemFoodWidget(),
+                          )
+                          .toList(),
+                    );
+                  },
+                ),
               ],
             ),
           ),
