@@ -34,4 +34,10 @@ class ProductModel {
         category: json["category"],
       );
 
+  Map<String, dynamic> toJson()=> {
+    "title": title,
+    "rate": rate,
+    "category": category,
+  };
+
 }

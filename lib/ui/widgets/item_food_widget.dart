@@ -24,12 +24,9 @@ class _ItemFoodWidgetState extends State<ItemFoodWidget> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-
-      setState(() {
-
-      });
-    });
+    // WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    //
+    // });
   }
 
   @override
@@ -47,7 +44,6 @@ class _ItemFoodWidgetState extends State<ItemFoodWidget> {
 
     return InkWell(
       onTap: () {
-        widget.productModel.category = categoryTemp;
         Navigator.push(
           context,
           MaterialPageRoute(

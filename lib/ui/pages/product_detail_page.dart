@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:menuapp/models/product_model.dart';
+import 'package:menuapp/providers/category_provider.dart';
 import 'package:menuapp/ui/general/colors.dart';
 import 'package:menuapp/ui/widgets/general_widget.dart';
 import 'package:menuapp/ui/widgets/text_custom_widget.dart';
+import 'package:provider/provider.dart';
 
 class ProductDetailPage extends StatelessWidget {
   ProductModel model;
+
+  String categoryTemp = '';
 
   ProductDetailPage({
     required this.model,
@@ -14,6 +18,15 @@ class ProductDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
+
+    CategoryProvider categoryProvider =
+    Provider.of<CategoryProvider>(context, listen: false);
+    categoryTemp = categoryProvider.categories
+        .where((element) => element.id == model.category)
+        .toList()
+        .first
+        .description;
+
     return Scaffold(
       body: Stack(
         children: [
@@ -77,7 +90,7 @@ class ProductDetailPage extends StatelessWidget {
                               color: kBrandPrimaryColor,
                             ),
                             child: H6(
-                              text: model.category,
+                              text: categoryTemp,
                               color: Colors.white,
                             ),
                           ),
@@ -109,6 +122,7 @@ class ProductDetailPage extends StatelessWidget {
                             .map(
                               (e) => Chip(
                                 label: Text(e),
+                                backgroundColor: Colors.black12.withOpacity(0.06),
                               ),
                             )
                             .toList(),
