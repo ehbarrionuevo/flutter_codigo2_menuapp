@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           textTheme: GoogleFonts.openSansTextTheme(),
         ),
         home: InitPage(),
-      ),,
+      ),
     );
   }
 }
