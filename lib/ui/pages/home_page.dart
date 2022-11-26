@@ -98,7 +98,6 @@ class _HomePageState extends State<HomePage> {
                                       model: e,
                                       isSelected: provider.categorySelected == e.id,
                                       onTap: (){
-                                        print("sdsd");
                                         provider.changeCategorySelected(e.id!);
                                       },
                                     ),
