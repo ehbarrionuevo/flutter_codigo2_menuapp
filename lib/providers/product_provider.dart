@@ -11,6 +11,8 @@ class ProductProvider extends ChangeNotifier{
   final MyFirestoreService _productService = MyFirestoreService(collection: "products");
 
   Future<void> getProductData() async {
+    isLoading = true;
+    notifyListeners();
     products = await _productService.getProducts();
     isLoading = false;
     notifyListeners();

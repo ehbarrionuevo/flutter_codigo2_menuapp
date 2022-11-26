@@ -15,6 +15,8 @@ class _InitPageState extends State<InitPage> {
 
   int indexPage = 0;
 
+  late final PageController _pageController;
+
   List<Widget> _pages = [
     HomePage(),
     Center(child: Text("Ordenes",),),
@@ -22,11 +24,22 @@ class _InitPageState extends State<InitPage> {
     Center(child: Text("Mi Perfil",),),
   ];
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _pageController =  PageController(initialPage: indexPage );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[indexPage],
+      body: PageView(
+        controller: _pageController,
+        physics: const NeverScrollableScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        children: _pages,
+      ),
       bottomNavigationBar: Container(
         padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 8.0),
         decoration: BoxDecoration(
@@ -52,6 +65,7 @@ class _InitPageState extends State<InitPage> {
           unselectedItemColor: Colors.white70,
           onTap: (int value){
             indexPage = value;
+            _pageController.jumpToPage(indexPage);
             setState(() {
 
             });

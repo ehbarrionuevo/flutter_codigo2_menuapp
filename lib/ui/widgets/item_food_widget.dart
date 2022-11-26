@@ -25,16 +25,10 @@ class _ItemFoodWidgetState extends State<ItemFoodWidget> {
     // TODO: implement initState
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      CategoryProvider categoryProvider =
-      Provider.of<CategoryProvider>(context, listen: false);
-      // categoryTemp = categoryProvider.categories
-      //     .where((element) => element.id == widget.productModel.category)
-      //     .toList()
-      //     .first
-      //     .description;
-      // setState(() {
-      //
-      // });
+
+      setState(() {
+
+      });
     });
   }
 
@@ -43,10 +37,13 @@ class _ItemFoodWidgetState extends State<ItemFoodWidget> {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
-    // CategoryProvider categoryProvider =
-    //     Provider.of<CategoryProvider>(context, listen: false);
-    print("sssssssssssssssss ${widget.productModel.category}");
-
+    CategoryProvider categoryProvider =
+    Provider.of<CategoryProvider>(context, listen: false);
+    categoryTemp = categoryProvider.categories
+        .where((element) => element.id == widget.productModel.category)
+        .toList()
+        .first
+        .description;
 
     return InkWell(
       onTap: () {
@@ -96,7 +93,7 @@ class _ItemFoodWidgetState extends State<ItemFoodWidget> {
                       color: kBrandPrimaryColor,
                     ),
                     child: H6(
-                      text: widget.productModel.category,
+                      text: categoryTemp,
                       color: Colors.white,
                     ),
                   ),
