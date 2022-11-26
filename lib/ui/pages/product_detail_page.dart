@@ -22,11 +22,18 @@ class ProductDetailPage extends StatelessWidget {
 
     CategoryProvider categoryProvider =
         Provider.of<CategoryProvider>(context, listen: false);
+
+    ProductDetailProvider productDetailProvider =
+        Provider.of<ProductDetailProvider>(context, listen: false);
+
     categoryTemp = categoryProvider.categories
         .where((element) => element.id == model.category)
         .toList()
         .first
         .description;
+
+    productDetailProvider.price = model.price;
+    productDetailProvider.quantity = 1;
 
     return Scaffold(
       body: Stack(
@@ -172,10 +179,10 @@ class ProductDetailPage extends StatelessWidget {
                                       ),
                                     ),
                                     InkWell(
-                                      onTap:(){
+                                      onTap: () {
                                         provider.addQuantity();
                                       },
-                                      child: Container (
+                                      child: Container(
                                         padding: const EdgeInsets.all(4.0),
                                         decoration: BoxDecoration(
                                           shape: BoxShape.circle,
