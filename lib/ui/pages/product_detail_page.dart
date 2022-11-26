@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:menuapp/models/product_model.dart';
 import 'package:menuapp/providers/category_provider.dart';
+import 'package:menuapp/providers/product_detail_provider.dart';
 import 'package:menuapp/ui/general/colors.dart';
 import 'package:menuapp/ui/widgets/general_widget.dart';
 import 'package:menuapp/ui/widgets/text_custom_widget.dart';
@@ -129,50 +130,67 @@ class ProductDetailPage extends StatelessWidget {
                             .toList(),
                       ),
                       spacing14,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          H2(
-                            text: "S/ ${model.price.toStringAsFixed(2)}",
-                            fontWeight: FontWeight.w600,
-                            color: kBrandPrimaryColor,
-                          ),
-                          Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8),
-                            decoration: BoxDecoration(
-                              color: Colors.black12.withOpacity(0.06),
-                              borderRadius: BorderRadius.circular(30.0)
-                            ),
-                            child: Row(
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.all(4.0),
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.black12,
-                                  ),
-                                  child: const Icon(Icons.remove, size: 16.0),
+                      Consumer<ProductDetailProvider>(
+                        builder: (context, provider, _) {
+                          return Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              H2(
+                                // text: "S/ ${model.price.toStringAsFixed(2)}",
+                                text: "S/ ${provider.price.toStringAsFixed(2)}",
+                                fontWeight: FontWeight.w600,
+                                color: kBrandPrimaryColor,
+                              ),
+                              Container(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 12.0, vertical: 8),
+                                decoration: BoxDecoration(
+                                    color: Colors.black12.withOpacity(0.06),
+                                    borderRadius: BorderRadius.circular(30.0)),
+                                child: Row(
+                                  children: [
+                                    InkWell(
+                                      onTap: () {
+                                        provider.removeQuantity();
+                                      },
+                                      child: Container(
+                                        padding: const EdgeInsets.all(4.0),
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.black12,
+                                        ),
+                                        child: const Icon(Icons.remove,
+                                            size: 16.0),
+                                      ),
+                                    ),
+                                    Container(
+                                      width: 40,
+                                      alignment: Alignment.center,
+                                      child: H5(
+                                        text: provider.quantity.toString(),
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                    InkWell(
+                                      onTap:(){
+                                        provider.addQuantity();
+                                      },
+                                      child: Container (
+                                        padding: const EdgeInsets.all(4.0),
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.black87,
+                                        ),
+                                        child: const Icon(Icons.add,
+                                            size: 16.0, color: Colors.white),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                Container(
-                                  width: 40,
-                                  alignment: Alignment.center,
-                                  child: H5(
-                                    text: "1",
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                                Container(
-                                  padding: const EdgeInsets.all(4.0),
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.black87,
-                                  ),
-                                  child: const Icon(Icons.add, size: 16.0, color: Colors.white),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
+                              ),
+                            ],
+                          );
+                        },
                       ),
                     ],
                   ),
