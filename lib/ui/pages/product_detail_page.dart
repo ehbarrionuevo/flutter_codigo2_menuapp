@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:menuapp/models/product_model.dart';
+import 'package:menuapp/models/product_order_model.dart';
 import 'package:menuapp/providers/category_provider.dart';
+import 'package:menuapp/providers/order_provider.dart';
 import 'package:menuapp/providers/product_detail_provider.dart';
 import 'package:menuapp/ui/general/colors.dart';
 import 'package:menuapp/ui/widgets/general_widget.dart';
@@ -219,18 +221,34 @@ class ProductDetailPage extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: Container(
               height: 54.0,
-              margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+              margin:
+                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
               width: double.infinity,
-              child: ElevatedButton  (
-                onPressed: () {},
+              child: ElevatedButton(
+                onPressed: () {
+                  ProductOrderModel product = ProductOrderModel(
+                    id: model.id!,
+                    title: model.title,
+                    price: productDetailProvider.price,
+                    image: model.image,
+                    quantity: productDetailProvider.quantity,
+                  );
+
+                  OrderProvider _orderProvider =
+                      Provider.of<OrderProvider>(context, listen: false);
+
+                  _orderProvider.addProduct(product);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: kBrandPrimaryColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0),
                   ),
                 ),
-                child: Text(
-                  "Agregar orden",
+                child: H4(
+                  text: "Agregar orden",
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),

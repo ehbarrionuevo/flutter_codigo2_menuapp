@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:menuapp/providers/category_provider.dart';
+import 'package:menuapp/providers/order_provider.dart';
 import 'package:menuapp/providers/product_detail_provider.dart';
 import 'package:menuapp/providers/product_provider.dart';
 import 'package:menuapp/ui/pages/init_page.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (BuildContext context)=> CategoryProvider()),
         ChangeNotifierProvider(create: (BuildContext context)=> ProductProvider()),
         ChangeNotifierProvider(create: (BuildContext context)=> ProductDetailProvider()),
+        ChangeNotifierProvider(create: (BuildContext context)=> OrderProvider()),
       ],
       child: MaterialApp(
         title: "MenuApp",
