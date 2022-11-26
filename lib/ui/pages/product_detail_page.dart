@@ -66,6 +66,26 @@ class ProductDetailPage extends StatelessWidget {
                         text: model.title,
                         fontWeight: FontWeight.w600,
                       ),
+                      spacing6,
+                      Row(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 9.0, vertical: 4.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30.0),
+                              color: kBrandPrimaryColor,
+                            ),
+                            child: H6(
+                              text: model.category,
+                              color: Colors.white,
+                            ),
+                          ),
+                          spacingWidth6,
+                          const Icon(Icons.star, color: Colors.amber, size: 18.0,),
+                          H5(text: model.rate.toDouble().toString()),
+                        ],
+                      ),
                       spacing14,
                       H5(
                         text: model.description,

@@ -137,11 +137,13 @@ class H6 extends StatelessWidget {
   final String text;
   final int? maxLines;
   final Color? color;
+  final TextOverflow? textOverflow;
 
   H6({
     required this.text,
     this.maxLines,
     this.color,
+    this.textOverflow,
   });
 
   @override
@@ -151,6 +153,7 @@ class H6 extends StatelessWidget {
       fontSize: 13,
       maxLines: maxLines,
       color: color,
+      textOverflow: textOverflow,
     );
   }
 }

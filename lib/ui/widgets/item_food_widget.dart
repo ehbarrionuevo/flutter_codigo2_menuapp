@@ -30,6 +30,7 @@ class ItemFoodWidget extends StatelessWidget {
 
     return InkWell(
       onTap: () {
+        productModel.category = categoryTemp;
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -88,6 +89,7 @@ class ItemFoodWidget extends StatelessWidget {
                   H6(
                     text: productModel.description,
                     maxLines: 2,
+                    textOverflow: TextOverflow.ellipsis,
                   ),
                   spacing6,
                   Row(
