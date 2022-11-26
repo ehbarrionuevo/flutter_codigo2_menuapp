@@ -104,14 +104,19 @@ class H4 extends StatelessWidget {
 
 class H5 extends StatelessWidget {
   final String text;
+  final Color? color;
 
-  H5({required this.text});
+  H5({
+    required this.text,
+    this.color,
+  });
 
   @override
   Widget build(BuildContext context) {
     return OurText(
       text: text,
       fontSize: 14,
+      color: color,
     );
   }
 }

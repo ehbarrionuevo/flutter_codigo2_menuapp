@@ -12,6 +12,8 @@ class CategoryProvider extends ChangeNotifier{
 
   Future<void> getCategoryData() async{
     categories = await _myFirestoreService.getCategories();
+    CategoryModel categoryModel = CategoryModel(description: "Todos", status: true, id: "");
+    categories.insert(0, categoryModel);
     isLoading = false;
     notifyListeners();
   }

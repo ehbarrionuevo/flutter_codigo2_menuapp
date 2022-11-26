@@ -7,10 +7,15 @@ import 'package:menuapp/ui/widgets/text_custom_widget.dart';
 import 'package:menuapp/utils/assets_data.dart';
 
 class CategoryWidget extends StatelessWidget {
+
   CategoryModel model;
+  bool isSelected;
+  Function onTap;
 
   CategoryWidget({
     required this.model,
+    required this.isSelected,
+    required this.onTap,
   });
 
   @override
@@ -19,7 +24,7 @@ class CategoryWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
       margin: const EdgeInsets.only(right: 12.0),
       decoration: BoxDecoration(
-        color: kBrandSecondaryColor.withOpacity(0.07),
+        color: isSelected ? kBrandPrimaryColor :  kBrandSecondaryColor.withOpacity(0.07),
         borderRadius: BorderRadius.circular(30.0),
       ),
       child: Row(
@@ -33,6 +38,7 @@ class CategoryWidget extends StatelessWidget {
           // spacingWidth6,
           H5(
             text: model.description,
+            color: isSelected ? Colors.white : kBrandSecondaryColor,
           ),
         ],
       ),

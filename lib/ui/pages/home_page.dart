@@ -87,17 +87,25 @@ class _HomePageState extends State<HomePage> {
                 spacing20,
                 Consumer<CategoryProvider>(
                   builder: (context, provider, _) {
-                    return !provider.isLoading ? SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      physics: const BouncingScrollPhysics(),
-                      child: Row(
-                        children: provider.categories
-                            .map(
-                              (e) => CategoryWidget(model: e),
-                            )
-                            .toList(),
-                      ),
-                    ): const CircularProgressIndicator();
+                    return !provider.isLoading
+                        ? SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            physics: const BouncingScrollPhysics(),
+                            child: Row(
+                              children: provider.categories
+                                  .map(
+                                    (e) => CategoryWidget(
+                                      model: e,
+                                      isSelected: true,
+                                      onTap: (){
+
+                                      },
+                                    ),
+                                  )
+                                  .toList(),
+                            ),
+                          )
+                        : const CircularProgressIndicator();
                   },
                 ),
                 spacing20,
