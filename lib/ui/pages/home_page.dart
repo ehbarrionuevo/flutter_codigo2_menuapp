@@ -34,9 +34,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
 
-    MyFirestoreService myFirestoreService = MyFirestoreService(collection: "products");
-    print(myFirestoreService.getProducts());
-
     return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
