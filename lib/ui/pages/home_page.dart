@@ -18,7 +18,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final MyFirestoreService _categoryService = MyFirestoreService();
+
 
   @override
   void initState() {

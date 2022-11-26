@@ -9,7 +9,7 @@ class CategoryProvider extends ChangeNotifier{
   List<CategoryModel> categories = [];
   String categorySelected = "";
   bool isLoading = true;
-  final MyFirestoreService _myFirestoreService = MyFirestoreService();
+  final MyFirestoreService _myFirestoreService = MyFirestoreService(collection: "categories");
 
   Future<void> getCategoryData() async{
     categories = await _myFirestoreService.getCategories();
