@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:menuapp/models/category_model.dart';
+import 'package:menuapp/models/product_model.dart';
 
 class MyFirestoreService {
   String collection;
@@ -24,5 +25,16 @@ class MyFirestoreService {
     return categories;
   }
 
-  getProducts() {}
+  Future<List<ProductModel>> getProducts() async {
+    QuerySnapshot collection = await _reference.get();
+    List<QueryDocumentSnapshot> docs = collection.docs;
+    List<ProductModel> products = [];
+    for(var item in docs){
+      ProductModel productModel = ProductModel.fromJson(item.data() as Map<String, dynamic>);
+      productModel.id = item.id;
+      products.add(productModel);
+    }
+    return products;
+  }
+
 }
