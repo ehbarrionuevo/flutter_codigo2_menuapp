@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "309976531953",
+    "project_id": "codigo2-menuapp",
+    "storage_bucket": "codigo2-menuapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309976531953:android:f00e0a34cf0a8d2e6d7a50",
+        "android_client_info": {
+          "package_name": "com.livcode.menuapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "309976531953-96kuare16ukqk97kc4dojee9l8gj23l6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGcfFwIkpN-4ZnIC3rvH1g72996GIpaJ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "309976531953-96kuare16ukqk97kc4dojee9l8gj23l6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
