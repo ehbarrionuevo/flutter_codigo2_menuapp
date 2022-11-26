@@ -82,7 +82,11 @@ class ProductDetailPage extends StatelessWidget {
                             ),
                           ),
                           spacingWidth6,
-                          const Icon(Icons.star, color: Colors.amber, size: 18.0,),
+                          const Icon(
+                            Icons.star,
+                            color: Colors.amber,
+                            size: 18.0,
+                          ),
                           H5(text: model.rate.toDouble().toString()),
                         ],
                       ),
@@ -91,6 +95,23 @@ class ProductDetailPage extends StatelessWidget {
                         text: model.description,
                         height: 1.48,
                         color: kBrandSecondaryColor.withOpacity(0.65),
+                      ),
+                      spacing10,
+                      H4(
+                        text: "Ingredientes",
+                        fontWeight: FontWeight.w600,
+                      ),
+                      spacing10,
+                      Wrap(
+                        runSpacing: 0,
+                        spacing: 12.0,
+                        children: model.ingredients
+                            .map(
+                              (e) => Chip(
+                                label: Text(e),
+                              ),
+                            )
+                            .toList(),
                       ),
                     ],
                   ),
