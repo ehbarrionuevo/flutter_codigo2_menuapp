@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:menuapp/services/firestore_service.dart';
 import 'package:menuapp/ui/general/colors.dart';
 import 'package:menuapp/ui/widgets/category_widget.dart';
 import 'package:menuapp/ui/widgets/general_widget.dart';
@@ -13,8 +14,13 @@ class HomePage extends StatelessWidget {
   final CollectionReference _categoryReference =
       FirebaseFirestore.instance.collection('categories');
 
+  final MyFirestoreService _categoryService = MyFirestoreService();
+
+
   @override
   Widget build(BuildContext context) {
+
+    print(_categoryService.getCategories());
 
     return Scaffold(
       body: SingleChildScrollView(
