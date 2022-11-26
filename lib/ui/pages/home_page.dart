@@ -18,7 +18,7 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin {
   @override
   void initState() {
     // TODO: implement initState
@@ -37,6 +37,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
@@ -116,13 +117,13 @@ class _HomePageState extends State<HomePage> {
                 spacing20,
                 Consumer<ProductProvider>(
                   builder: (context, provider, _) {
-                    return Column(
+                    return !provider.isLoading ? Column(
                       children: provider.products
                           .map(
                             (e) => ItemFoodWidget(productModel: e),
                           )
                           .toList(),
-                    );
+                    ) : const Center(child: CircularProgressIndicator(),);
                   },
                 ),
               ],
@@ -132,4 +133,8 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+  @override
+
+  bool get wantKeepAlive => true;
 }
