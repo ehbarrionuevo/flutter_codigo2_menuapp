@@ -87,7 +87,7 @@ class OrderPage extends StatelessWidget {
          alignment: Alignment.bottomCenter,
           child: Container (
             width: double.infinity,
-            padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+            padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
             decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: [

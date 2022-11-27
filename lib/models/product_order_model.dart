@@ -13,4 +13,12 @@ class ProductOrderModel {
     required this.quantity,
   });
 
+  factory ProductOrderModel.fromJson(Map<String, dynamic> json) =>
+      ProductOrderModel(
+        id: json["id"] ?? "",
+        title: json["title"],
+        price: json["price"],
+        image: json["image"] ?? "",
+        quantity: json["quantity"] ?? 0,
+      );
 }
