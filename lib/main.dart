@@ -6,6 +6,7 @@ import 'package:menuapp/providers/category_provider.dart';
 import 'package:menuapp/providers/order_provider.dart';
 import 'package:menuapp/providers/product_detail_provider.dart';
 import 'package:menuapp/providers/product_provider.dart';
+import 'package:menuapp/ui/pages/admin/home_admin_page.dart';
 import 'package:menuapp/ui/pages/init_page.dart';
 import 'package:provider/provider.dart';
 
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           textTheme: GoogleFonts.openSansTextTheme(),
         ),
-        home: InitPage(),
+        home: HomeAdminPage(),
       ),
     );
   }
