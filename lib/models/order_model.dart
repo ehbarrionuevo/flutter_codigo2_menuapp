@@ -27,6 +27,15 @@ class OrderModel {
         products: List<ProductOrderModel>.from(json["products"].map((e)=> ProductOrderModel.fromJson(e))),
       );
 
+  Map<String, dynamic> toJson()=> {
+    "id": id,
+    "consumer": consumer,
+    "date": date,
+    "time": time,
+    "total": total,
+    "status": status,
+    "products": List<dynamic>.from(products.map((e) => e.toJson())),
+  };
 
 
 }

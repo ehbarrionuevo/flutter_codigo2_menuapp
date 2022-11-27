@@ -21,4 +21,13 @@ class ProductOrderModel {
         image: json["image"] ?? "",
         quantity: json["quantity"] ?? 0,
       );
+
+  Map<String, dynamic> toJson()=>{
+    "id": id,
+    "title": title,
+    "price": price,
+    "image": image,
+    "quantity": quantity,
+  };
+
 }

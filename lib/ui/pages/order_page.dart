@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:menuapp/models/order_model.dart';
 import 'package:menuapp/models/product_order_model.dart';
 import 'package:menuapp/providers/order_provider.dart';
 import 'package:menuapp/ui/general/colors.dart';
@@ -8,7 +9,8 @@ import 'package:menuapp/ui/widgets/text_custom_widget.dart';
 import 'package:provider/provider.dart';
 
 class OrderPage extends StatelessWidget {
-  const OrderPage({Key? key}) : super(key: key);
+
+  // final CollectionReference _order = FirebaseFirestore.instance.collection('orders');
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +19,15 @@ class OrderPage extends StatelessWidget {
 
     OrderProvider orderProvider =
         Provider.of<OrderProvider>(context, listen: true);
+
+
+
+    // _order.get().then((value){
+    //   QueryDocumentSnapshot doc = value.docs.first;
+    //   print(OrderModel.fromJson(doc.data() as Map<String, dynamic>));
+    // });
+
+
 
     return Stack(
       clipBehavior: Clip.none,
