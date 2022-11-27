@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:menuapp/models/order_model.dart';
 import 'package:menuapp/models/product_order_model.dart';
 import 'package:menuapp/providers/order_provider.dart';
+import 'package:menuapp/services/firestore_service.dart';
 import 'package:menuapp/ui/general/colors.dart';
 import 'package:menuapp/ui/widgets/general_widget.dart';
 import 'package:menuapp/ui/widgets/text_custom_widget.dart';
 import 'package:provider/provider.dart';
 
 class OrderPage extends StatelessWidget {
-  // final CollectionReference _order = FirebaseFirestore.instance.collection('orders');
+
+  MyFirestoreService orderService = MyFirestoreService(collection: "orders");
 
   @override
   Widget build(BuildContext context) {
@@ -138,8 +140,8 @@ class OrderPage extends StatelessWidget {
                         products: orderProvider.orders,
                       );
 
-                      print(orderModel.toJson());
 
+                      orderService.registerOrder(orderModel);
 
 
                     },

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:menuapp/models/category_model.dart';
+import 'package:menuapp/models/order_model.dart';
 import 'package:menuapp/models/product_model.dart';
 
 class MyFirestoreService {
@@ -36,5 +37,11 @@ class MyFirestoreService {
     }
     return products;
   }
+
+  registerOrder(OrderModel model) async{
+    DocumentReference doc = await _reference.add(model.toJson());
+    print(doc.id);
+  }
+
 
 }
