@@ -43,5 +43,18 @@ class MyFirestoreService {
     print(doc.id);
   }
 
+  Future<List<OrderModel>> getOrders() async{
+    QuerySnapshot collection = await _reference.get();
+    List<QueryDocumentSnapshot> docs = collection.docs;
+    List<OrderModel> orders = [];
+    for(var item in docs){
+      OrderModel orderMoldel = OrderModel.fromJson(item.data() as Map<String, dynamic>);
+      orders.add(orderMoldel);
+    }
+    return orders;
+  }
+
+
+
 
 }
