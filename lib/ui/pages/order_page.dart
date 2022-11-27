@@ -9,25 +9,19 @@ import 'package:menuapp/ui/widgets/text_custom_widget.dart';
 import 'package:provider/provider.dart';
 
 class OrderPage extends StatelessWidget {
-
   // final CollectionReference _order = FirebaseFirestore.instance.collection('orders');
 
   @override
   Widget build(BuildContext context) {
-
     double height = MediaQuery.of(context).size.height;
 
     OrderProvider orderProvider =
         Provider.of<OrderProvider>(context, listen: true);
 
-
-
     // _order.get().then((value){
     //   QueryDocumentSnapshot doc = value.docs.first;
     //   print(OrderModel.fromJson(doc.data() as Map<String, dynamic>));
     // });
-
-
 
     return Stack(
       clipBehavior: Clip.none,
@@ -45,7 +39,7 @@ class OrderPage extends StatelessWidget {
                       text: "Mis Ordenes",
                     ),
                     ...orderProvider.orders.map(
-                          (ProductOrderModel e) => Container(
+                      (ProductOrderModel e) => Container(
                         margin: const EdgeInsets.symmetric(vertical: 7.0),
                         child: Row(
                           children: [
@@ -71,7 +65,7 @@ class OrderPage extends StatelessWidget {
                                   H6(text: "Cant. ${e.quantity}"),
                                   spacing3,
                                   InkWell(
-                                    onTap: (){
+                                    onTap: () {
                                       orderProvider.removeProduct(e);
                                     },
                                     child: H6(text: "Eliminar"),
@@ -95,10 +89,11 @@ class OrderPage extends StatelessWidget {
           ),
         ),
         Align(
-         alignment: Alignment.bottomCenter,
-          child: Container (
+          alignment: Alignment.bottomCenter,
+          child: Container(
             width: double.infinity,
-            padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
             decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: [
@@ -119,18 +114,34 @@ class OrderPage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    H3(text: " Total:",),
+                    H3(
+                      text: " Total:",
+                    ),
                     H3(text: "S/ ${orderProvider.total.toStringAsFixed(2)} "),
                   ],
                 ),
                 spacing10,
                 Container(
                   height: 54.0,
-                  margin:
-                  const EdgeInsets.symmetric(horizontal: 0.0, vertical: 0.0),
+                  margin: const EdgeInsets.symmetric(
+                      horizontal: 0.0, vertical: 0.0),
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
+
+                      OrderModel orderModel = OrderModel(
+                        consumer: "Elvis Barrionuevo",
+                        date: "2022-12-12",
+                        time: "16:22",
+                        total: 140.21,
+                        status: "Pendiente",
+                        products: orderProvider.orders,
+                      );
+
+                      print(orderModel.toJson());
+
+
+
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: kBrandPrimaryColor,
