@@ -1,8 +1,8 @@
-
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:menuapp/models/product_order_model.dart';
 import 'package:menuapp/providers/order_provider.dart';
+import 'package:menuapp/ui/widgets/general_widget.dart';
 import 'package:menuapp/ui/widgets/text_custom_widget.dart';
 import 'package:provider/provider.dart';
 
@@ -11,8 +11,8 @@ class OrderPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    OrderProvider orderProvider = Provider.of<OrderProvider>(context, listen: true);
+    OrderProvider orderProvider =
+        Provider.of<OrderProvider>(context, listen: true);
 
     return Scaffold(
       body: SafeArea(
@@ -21,8 +21,36 @@ class OrderPage extends StatelessWidget {
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
-                H1(text: "Mis Ordenes",),
-                ...orderProvider.orders.map((e) => Text(e.title),),
+                H1(
+                  text: "Mis Ordenes",
+                ),
+                ...orderProvider.orders.map(
+                  (ProductOrderModel e) => Container(
+                    margin: const EdgeInsets.symmetric(vertical: 7.0),
+                    child: Row(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(14.0),
+                          child: Image.network(
+                            e.image,
+                            width: 80,
+                            height: 90,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        spacingWidth10,
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              H5(text: e.title,),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
