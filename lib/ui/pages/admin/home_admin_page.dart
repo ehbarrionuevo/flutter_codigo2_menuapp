@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:menuapp/ui/general/colors.dart';
 import 'package:menuapp/ui/widgets/general_widget.dart';
+import 'package:menuapp/ui/widgets/item_admin_menu_widget.dart';
 import 'package:menuapp/ui/widgets/text_custom_widget.dart';
 
 class HomeAdminPage extends StatelessWidget {
@@ -24,27 +25,35 @@ class HomeAdminPage extends StatelessWidget {
                   color: kBrandSecondaryColor.withOpacity(0.60),
                 ),
                 spacing20,
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(14.0),
-                    border: Border.all(
-                      color: kBrandSecondaryColor.withOpacity(0.2),
-                      width: 0.9,
-                    ),
-                  ),
-                  child: ListTile(
-                    title: H5(
-                      text: "Ordenes",
-                    ),
-                    subtitle: H6(
-                      text: "Listado de ordenes actuales",
-                      color: kBrandSecondaryColor.withOpacity(0.60),
-                    ),
-                    trailing: const Icon(
-                      Icons.chevron_right,
-                    ),
-                  ),
+                ItemAdminMenuWidget(
+                  title: "Ordenes",
+                  subtitle: "Listado de ordenes actuales",
+                  onTap: (){
+
+                  },
                 ),
+                ItemAdminMenuWidget(
+                  title: "Gestión de categorías",
+                  subtitle: "Gestión de los datos de las categorías",
+                  onTap: (){
+
+                  },
+                ),
+                ItemAdminMenuWidget(
+                  title: "Gestión de productos",
+                  subtitle: "Gestión de los datos de los productos",
+                  onTap: (){
+
+                  },
+                ),
+                ItemAdminMenuWidget(
+                  title: "Reportes",
+                  subtitle: "Reportes generales de la empresa",
+                  onTap: (){
+
+                  },
+                ),
+
               ],
             ),
           ),
