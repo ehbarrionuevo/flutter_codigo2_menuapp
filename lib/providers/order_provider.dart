@@ -10,12 +10,13 @@ class OrderProvider extends ChangeNotifier{
 
   addProduct(ProductOrderModel model){
     orders.add(model);
-
+    total = total + model.price;
     notifyListeners();
   }
 
   removeProduct(ProductOrderModel model){
     orders.remove(model);
+    total = total - model.price;
     notifyListeners();
   }
 
