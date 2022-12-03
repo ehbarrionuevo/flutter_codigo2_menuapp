@@ -5,7 +5,12 @@ import 'package:menuapp/ui/widgets/text_custom_widget.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class DashboardPage extends StatelessWidget {
-  const DashboardPage({Key? key}) : super(key: key);
+
+  List<PieChartModel> dataPie =[
+    PieChartModel(x: "Juan",y: 20, color: Colors.indigo,),
+    PieChartModel(x: "Daniel",y: 30, color: Colors.greenAccent,),
+    PieChartModel(x: "Julio",y: 50, color: Colors.redAccent,),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +30,20 @@ class DashboardPage extends StatelessWidget {
                   color: kBrandSecondaryColor.withOpacity(0.60),
                 ),
                 SfCircularChart(
+                  title: ChartTitle(text: "Resumen mensual",),
+                  legend: Legend(
+                    title: LegendTitle(text: "Detalle",),
+                    isVisible: true,
+                  ),
+                  tooltipBehavior: TooltipBehavior(
+                    enable: true,
+                  ),
                   series: <CircularSeries>[
-                    PieSeries(
-                      dataSource: [
-                        "Hola",
-                        "Como estas"
-                      ],
-                      pointColorMapper: (x, index)=> Colors.red,
-                      xValueMapper: (x, index)=> 10,
-                      yValueMapper: (x, index)=> 10,
+                    PieSeries<PieChartModel, String>(
+                      dataSource: dataPie,
+                      pointColorMapper: (model, index)=> model.color,
+                      xValueMapper: (model, index)=> model.x,
+                      yValueMapper: (model, index)=> model.y,
                     ),
                   ],
                 )
