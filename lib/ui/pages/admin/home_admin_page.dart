@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:menuapp/ui/general/colors.dart';
+import 'package:menuapp/ui/pages/admin/dashboard_page.dart';
 import 'package:menuapp/ui/pages/admin/order_admin_page.dart';
 import 'package:menuapp/ui/widgets/general_widget.dart';
 import 'package:menuapp/ui/widgets/item_admin_menu_widget.dart';
@@ -51,7 +52,7 @@ class HomeAdminPage extends StatelessWidget {
                   title: "Reportes",
                   subtitle: "Reportes generales de la empresa",
                   onTap: (){
-
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> DashboardPage()));
                   },
                 ),
 

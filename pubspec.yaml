@@ -41,6 +41,7 @@ dependencies:
   firebase_core: ^2.3.0
   cloud_firestore: ^4.1.0
   provider: ^6.0.4
+  syncfusion_flutter_charts: ^20.3.59
 
 
 
