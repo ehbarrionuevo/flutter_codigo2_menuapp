@@ -9,11 +9,13 @@ import 'package:menuapp/providers/product_detail_provider.dart';
 import 'package:menuapp/providers/product_provider.dart';
 import 'package:menuapp/ui/pages/admin/home_admin_page.dart';
 import 'package:menuapp/ui/pages/init_page.dart';
+import 'package:menuapp/utils/push_notification_helper.dart';
 import 'package:provider/provider.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  await PushNotificationHelper.initApp();
   runApp(MyApp());
 }
 

@@ -42,6 +42,7 @@ dependencies:
   cloud_firestore: ^4.1.0
   provider: ^6.0.4
   syncfusion_flutter_charts: ^20.3.59
+  firebase_messaging: ^14.1.3
 
 
 
